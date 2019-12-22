@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+# it s better to leave this line iako koristimo volume in dcoker compose, jer ak ne koristimo docker compose imat cemo problem
+COPY . .
+
+CMD ["npm", "run", "start"]
